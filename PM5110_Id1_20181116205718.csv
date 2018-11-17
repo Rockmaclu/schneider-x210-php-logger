@@ -1,0 +1,8 @@
+Gateway Name	Gateway SN	Gateway IP Address	Gateway MAC Address	Device Name	Device Local ID	Device Type ID	Device Type Name	Logging Interval	Historical Intervals
+ComX210_F9A662	DN17087SE000045	192.168.1.9	00:80:67:F9:A6:62	PM5110_Id1	0	10000	PM5110	15	1
+
+			Topic ID1	Topic ID2	Topic ID3	Topic ID4	Topic ID5	Topic ID6	Topic ID7	Topic ID8	Topic ID9	Topic ID10	Topic ID11	Topic ID12	Topic ID13	Topic ID14	Topic ID15
+			1001	1003	1004	1005	1006	1014	1015	1016	1034	1042	1046	1601	1605	1731	1732
+
+Error	UTC Offset (minutes)	Local Time Stamp	Frequency (Hz)	Current A (A)	Current B (A)	Current C (A)	Current N (A)	Voltage A-B (V)	Voltage B-C (V)	Voltage C-A (V)	Power Factor ()	Active Power (W)	Reactive Power (VAr)	Active energy delivered (Wh)	Reactive energy delivered (VArh)	Demand Active Power (W)	Demand Reactive Power (VAr)
+19	0	11-16-2018 20:57:18	N/A	0	0	0	0	0	0	0	N/A	0	0	7473	16100	0	0
