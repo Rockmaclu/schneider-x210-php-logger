@@ -1,8 +1,9 @@
 
 <?php
     require 'connection.php';
-    $tmpName = $_FILES['csv']['tmp_name'];
+    //CON ESTO SEGUN DIEGO $entityBody = file_get_contents('php://input');
 
+    $tmpName = $_FILES['csv']['tmp_name'];
     $csvAsArray = array_map( function($d) {return str_getcsv($d, "\t"); }, file($tmpName));
 
     $lectures = array_slice($csvAsArray,7);
@@ -28,7 +29,7 @@
       $demandreactivepower = $value[17];
 
       $sql = "INSERT INTO lectures (error,utcoffset,lecturetimestamp,frecuency,currentA,currentB,currentC,currentN,voltageAB,voltageBC,voltageCA,powerFactor,activepower,reactivepower,activeenergydelivered,reactiveenergydelivered,demandactivepower,demandreactivepower)
-      VALUES ($error, $utcoffset,'$lecturetimestamp',0,$currentA,$currentB,$currentC,$currentM,$voltageAB,$voltageBC,$voltageCA,0,$activepower,$reactivepower,$activeenergydelivered,$reactiveenergydelivered,$demandactivepower,$demandreactivepower)";
+      VALUES ($error, $utcoffset,'$lecturetimestamp',0,$currentA,$currentB,$currentC,$currentM,$voltageAB,$voltageBC,$voltageCA,0,$activepower,$reactivepower,$activeenergydelivered,$reactiveenergydelivered,0,0)";
 
       if (mysqli_query($conn, $sql)) {
           echo "New record created successfully <br>";
