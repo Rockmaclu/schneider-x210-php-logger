@@ -2,18 +2,10 @@
 <?php
     require 'connection.php';
 
+    $tmpName = $_FILES['datafile1']['tmp_name'];
+    $csvAsArray = array_map( function($d) {return str_getcsv($d, "\t"); }, file($tmpName));
 
-    //file_put_contents("lastpost.txt", $entityBody);
-    //$tmpName = $_FILES['csv']['tmp_name'];
-
-    $csvData = file_get_contents('php://input');
-    $lines = explode(PHP_EOL, $csvData);
-    $array = array();
-    foreach ($lines as $line) {
-        $array[] = str_getcsv($line,"\t");
-    }
-
-    $lectures = array_slice($array,7);
+    $lectures = array_slice($csvAsArray,7);
     array_pop($lectures);
 
     foreach ($lectures as $value) {
