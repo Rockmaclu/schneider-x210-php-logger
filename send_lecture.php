@@ -1,9 +1,12 @@
 
 <?php
     require 'connection.php';
-    //CON ESTO SEGUN DIEGO $entityBody = file_get_contents('php://input');
 
-    $tmpName = $_FILES['csv']['tmp_name'];
+
+    //file_put_contents("lastpost.txt", $entityBody);
+    //$tmpName = $_FILES['csv']['tmp_name'];
+
+    $tmpName = file_get_contents('php://input'); //ESTO NO ES UN ARRAY
     $csvAsArray = array_map( function($d) {return str_getcsv($d, "\t"); }, file($tmpName));
 
     $lectures = array_slice($csvAsArray,7);
