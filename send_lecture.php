@@ -6,10 +6,15 @@
     //file_put_contents("lastpost.txt", $entityBody);
     //$tmpName = $_FILES['csv']['tmp_name'];
 
-    $tmpName = file_get_contents('php://input'); //ESTO NO ES UN ARRAY
-    $csvAsArray = array_map( function($d) {return str_getcsv($d, "\t"); }, file($tmpName));
+    $csvData = file_get_contents('php://input');
+    $lines = explode(PHP_EOL, $csvData);
+    $array = array();
+    foreach ($lines as $line) {
+        $array[] = str_getcsv($line,"\t");
+    }
 
-    $lectures = array_slice($csvAsArray,7);
+    $lectures = array_slice($array,7);
+    array_pop($lectures);
 
     foreach ($lectures as $value) {
       $error = $value[0];
